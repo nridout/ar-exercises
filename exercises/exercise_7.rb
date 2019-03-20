@@ -12,4 +12,6 @@ puts "----------"
 puts "Please enter a store name:"
 new_store = gets.chomp
 
-Store.create(name: new_store)
+store = Store.create!(name: new_store)
+store.valid?
+store.errors.full_messages
