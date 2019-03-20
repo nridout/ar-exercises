@@ -4,7 +4,17 @@ require_relative './exercise_2'
 require_relative './exercise_3'
 require_relative './exercise_4'
 
-puts "Exercise 5"
+puts "\nExercise 5"
 puts "----------"
 
-# Your code goes here ...
+# Output the total annual revenue for the entire company (all stores)
+@total_revenue = Store.sum(:annual_revenue)
+puts "\nThe total store revenue for the entire company is #{@total_revenue}."
+
+# On the next line, also output the average annual revenue for all stores.
+@average_ann_revenue = Store.average(:annual_revenue)
+puts "\nThe average annual revenue for all stores is #{@average_ann_revenue}."
+
+# Output the number of stores that are generating $1M or more in annual sales. Hint: Chain together where and size (or count) Active Record methods
+@high_profit_stores = Store.where("annual_revenue > 1000000").count
+puts "\nThere are #{@high_profit_stores} stores generating $1M or more in annual sales."
